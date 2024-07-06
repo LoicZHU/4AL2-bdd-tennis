@@ -1,0 +1,12 @@
+plugins:
+  - "@prettier/plugin-xml"
+  - prettier-plugin-java
+overrides:
+  - files:
+      - "*.java"
+      - "*.xml"
+    options:
+      printWidth: 90
+      tabWidth: 2
+      useTabs: false
+      trailingComma: none

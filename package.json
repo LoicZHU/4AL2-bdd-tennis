@@ -1,0 +1,19 @@
+{
+  "name": "tennis",
+  "version": "1.0.0",
+  "main": "",
+  "scripts": {
+    "format": "prettier --write 'src/**/*.{java,xml}' '*/pom.xml'",
+    "prepare": "husky"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@prettier/plugin-xml": "^3.4.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "prettier-plugin-java": "^2.6.0"
+  }
+}
