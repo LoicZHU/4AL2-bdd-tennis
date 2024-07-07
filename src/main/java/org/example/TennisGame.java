@@ -18,6 +18,7 @@ public class TennisGame {
 
     public String getWinner() {
         // TODO
+        return "";
     }
 
     public void pointWonBy(Player player) {
