@@ -1,22 +1,22 @@
 Feature: Game scoring
 
   Scenario: Player1 wins the first point
-    Given the initial score is "0" "0"
+    Given the initial score is "love" "love"
     When Player1 wins a point
-    Then the score should be "15" "0"
+    Then the score should be "15" "love"
 
   Scenario: Player1 wins the second point
-    Given the initial score is "15" "0"
+    Given the initial score is "15" "love"
     When Player1 wins a point
-    Then the score should be "30" "0"
+    Then the score should be "30" "love"
 
   Scenario: Player1 wins the third point
-    Given the initial score is "30" "0"
+    Given the initial score is "30" "love"
     When Player1 wins a point
-    Then the score should be "40" "0"
+    Then the score should be "40" "love"
 
   Scenario: Player1 wins the fourth point and wins the game
-    Given the initial score is "40" "0"
+    Given the initial score is "40" "love"
     When Player1 wins a point
     Then Player1 should win the game
 

@@ -1,7 +1,7 @@
 package org.example.game;
 
 public enum ScoreState {
-  LOVE("0"),
+  LOVE("love"),
   FIFTEEN("15"),
   THIRTY("30"),
   FORTY("40"),
