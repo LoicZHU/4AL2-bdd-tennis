@@ -33,10 +33,11 @@ public class Game {
       player2Score = ScoreState.DEUCE.getScore();
       player1Score = ScoreState.DEUCE.getScore();
     } else if (
-      ScoreState.FORTY.getScore().equals(player1Score) &&
-      ScoreState.FORTY.getScore().equals(player2Score)
+      ScoreState.DEUCE.getScore().equals(player1Score) &&
+      ScoreState.DEUCE.getScore().equals(player2Score)
     ) {
       player1Score = ScoreState.ADVANTAGE.getScore();
+      player2Score = ScoreState.FORTY.getScore();
     } else if (
       ScoreState.THIRTY.getScore().equals(player1Score) &&
       ScoreState.FORTY.getScore().equals(player2Score)
@@ -61,10 +62,11 @@ public class Game {
       player1Score = ScoreState.DEUCE.getScore();
       player2Score = ScoreState.DEUCE.getScore();
     } else if (
-      ScoreState.FORTY.getScore().equals(player2Score) &&
-      ScoreState.FORTY.getScore().equals(player1Score)
+      ScoreState.DEUCE.getScore().equals(player2Score) &&
+      ScoreState.DEUCE.getScore().equals(player1Score)
     ) {
       player2Score = ScoreState.ADVANTAGE.getScore();
+      player1Score = ScoreState.FORTY.getScore();
     } else if (
       ScoreState.THIRTY.getScore().equals(player2Score) &&
       ScoreState.FORTY.getScore().equals(player1Score)
