@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "",
   "scripts": {
-    "format": "prettier --write 'src/**/*.{java,xml}' '*/pom.xml'",
+    "format": "prettier --write '/src/**/*.{java,xml}' '*/pom.xml'",
     "prepare": "husky"
   },
   "author": "",

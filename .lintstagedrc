@@ -1,4 +1,4 @@
 {
     "*/pom.xml": ["prettier --write"],
-    "*/src/**/*.{java,xml}": ["prettier --write"]
+    "src/**/*.{java,xml}": ["prettier --write"]
 }
