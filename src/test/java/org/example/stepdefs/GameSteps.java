@@ -18,18 +18,23 @@ public class GameSteps {
   }
 
   @When("Player1 wins a point")
-  public void playerOneWinsAPoint() {
-    game.playerOneScores();
+  public void player1WinsAPoint() {
+    game.player1Scores();
   }
 
   @When("Player2 wins a point")
   public void playerTwoWinsAPoint() {
-    game.playerTwoScores();
+    game.player2Scores();
   }
 
   @Then("Player1 should win the game")
-  public void playerOneShouldWinTheGame() {
-    assertTrue(game.isPlayerOneWinner());
+  public void player1ShouldWinTheGame() {
+    assertTrue(game.isPlayer1Winner());
+  }
+
+  @Then("Player2 should win the game")
+  public void player2ShouldWinTheGame() {
+    assertTrue(game.isPlayer2Winner());
   }
 
   @Then("the score should be {string} {string}")
