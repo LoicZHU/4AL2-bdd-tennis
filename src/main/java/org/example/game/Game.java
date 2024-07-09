@@ -18,15 +18,15 @@ public class Game {
     return player2Score;
   }
 
-  public Boolean isPlayerOneWinner() {
+  public Boolean isPlayer1Winner() {
     return ScoreState.WIN.getScore().equals(player1Score);
   }
 
-  public Boolean isPlayerTwoWinner() {
+  public Boolean isPlayer2Winner() {
     return ScoreState.WIN.getScore().equals(player2Score);
   }
 
-  public void playerOneScores() {
+  public void player1Scores() {
     if (ScoreState.ADVANTAGE.getScore().equals(player1Score)) {
       player1Score = ScoreState.WIN.getScore();
     } else if (ScoreState.ADVANTAGE.getScore().equals(player2Score)) {
@@ -55,7 +55,7 @@ public class Game {
     }
   }
 
-  public void playerTwoScores() {
+  public void player2Scores() {
     if (ScoreState.ADVANTAGE.getScore().equals(player2Score)) {
       player2Score = ScoreState.WIN.getScore();
     } else if (ScoreState.ADVANTAGE.getScore().equals(player1Score)) {
