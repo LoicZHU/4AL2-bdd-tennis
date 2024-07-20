@@ -12,7 +12,7 @@ public class GameSteps {
 
   private Game game;
 
-  @Given("the initial score is {string} {string}")
+  @Given("the current score is {string} {string}")
   public void theInitialScoreIs(String score1, String score2) {
     game = new Game(score1, score2);
   }
