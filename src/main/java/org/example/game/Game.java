@@ -11,42 +11,19 @@ public class Game {
   }
 
   public String getPlayer1Score() {
-    return player1Score;
+    return this.player1Score;
   }
 
   public String getPlayer2Score() {
-    return player2Score;
+    return this.player2Score;
   }
 
   public Boolean isPlayer1Winner() {
-    return ScoreState.WIN.getScore().equals(player1Score);
+    return ScoreState.WIN.getScore().equals(this.player1Score);
   }
 
   public Boolean isPlayer2Winner() {
-    return ScoreState.WIN.getScore().equals(player2Score);
-  }
-
-  public void player1Scores() {
-    if (this.isScoreAdvantage(player1Score)) {
-      player1Score = ScoreState.WIN.getScore();
-    } else if (this.isScoreAdvantage(player2Score)) {
-      player2Score = ScoreState.DEUCE.getScore();
-      player1Score = ScoreState.DEUCE.getScore();
-    } else if (this.areBothScoresDeuce(player1Score, player2Score)) {
-      player1Score = ScoreState.ADVANTAGE.getScore();
-      player2Score = ScoreState.FORTY.getScore();
-    } else if (this.isScoreThirty(player1Score) && this.isScoreForty(player2Score)) {
-      player1Score = ScoreState.DEUCE.getScore();
-      player2Score = ScoreState.DEUCE.getScore();
-    } else if (this.isScoreForty(player1Score)) {
-      player1Score = ScoreState.WIN.getScore();
-    } else if (this.isScoreThirty(player1Score)) {
-      player1Score = ScoreState.FORTY.getScore();
-    } else if (this.isScoreFifteen(player1Score)) {
-      player1Score = ScoreState.THIRTY.getScore();
-    } else if (this.isScoreLove(player1Score)) {
-      player1Score = ScoreState.FIFTEEN.getScore();
-    }
+    return ScoreState.WIN.getScore().equals(this.player2Score);
   }
 
   private Boolean isScoreLove(String score) {
@@ -76,26 +53,53 @@ public class Game {
     return ScoreState.ADVANTAGE.getScore().equals(score);
   }
 
+  public void player1Scores() {
+    if (this.isScoreAdvantage(this.player1Score)) {
+      this.player1Score = ScoreState.WIN.getScore();
+    } else if (this.isScoreAdvantage(this.player2Score)) {
+      this.player2Score = ScoreState.DEUCE.getScore();
+      this.player1Score = ScoreState.DEUCE.getScore();
+    } else if (this.areBothScoresDeuce(this.player1Score, this.player2Score)) {
+      this.player1Score = ScoreState.ADVANTAGE.getScore();
+      this.player2Score = ScoreState.FORTY.getScore();
+    } else if (
+      this.isScoreThirty(this.player1Score) && this.isScoreForty(this.player2Score)
+    ) {
+      this.player1Score = ScoreState.DEUCE.getScore();
+      this.player2Score = ScoreState.DEUCE.getScore();
+    } else if (this.isScoreForty(this.player1Score)) {
+      this.player1Score = ScoreState.WIN.getScore();
+    } else if (this.isScoreThirty(this.player1Score)) {
+      this.player1Score = ScoreState.FORTY.getScore();
+    } else if (this.isScoreFifteen(this.player1Score)) {
+      this.player1Score = ScoreState.THIRTY.getScore();
+    } else if (this.isScoreLove(this.player1Score)) {
+      this.player1Score = ScoreState.FIFTEEN.getScore();
+    }
+  }
+
   public void player2Scores() {
-    if (this.isScoreAdvantage(player2Score)) {
-      player2Score = ScoreState.WIN.getScore();
-    } else if (this.isScoreAdvantage(player1Score)) {
-      player1Score = ScoreState.DEUCE.getScore();
-      player2Score = ScoreState.DEUCE.getScore();
-    } else if (this.areBothScoresDeuce(player1Score, player2Score)) {
-      player2Score = ScoreState.ADVANTAGE.getScore();
-      player1Score = ScoreState.FORTY.getScore();
-    } else if (this.isScoreThirty(player2Score) && this.isScoreForty(player1Score)) {
-      player2Score = ScoreState.DEUCE.getScore();
-      player1Score = ScoreState.DEUCE.getScore();
-    } else if (this.isScoreForty(player2Score)) {
-      player2Score = ScoreState.WIN.getScore();
-    } else if (this.isScoreThirty(player2Score)) {
-      player2Score = ScoreState.FORTY.getScore();
-    } else if (this.isScoreFifteen(player2Score)) {
-      player2Score = ScoreState.THIRTY.getScore();
-    } else if (this.isScoreLove(player2Score)) {
-      player2Score = ScoreState.FIFTEEN.getScore();
+    if (this.isScoreAdvantage(this.player2Score)) {
+      this.player2Score = ScoreState.WIN.getScore();
+    } else if (this.isScoreAdvantage(this.player1Score)) {
+      this.player1Score = ScoreState.DEUCE.getScore();
+      this.player2Score = ScoreState.DEUCE.getScore();
+    } else if (this.areBothScoresDeuce(this.player1Score, this.player2Score)) {
+      this.player2Score = ScoreState.ADVANTAGE.getScore();
+      this.player1Score = ScoreState.FORTY.getScore();
+    } else if (
+      this.isScoreThirty(this.player2Score) && this.isScoreForty(this.player1Score)
+    ) {
+      this.player2Score = ScoreState.DEUCE.getScore();
+      this.player1Score = ScoreState.DEUCE.getScore();
+    } else if (this.isScoreForty(this.player2Score)) {
+      this.player2Score = ScoreState.WIN.getScore();
+    } else if (this.isScoreThirty(this.player2Score)) {
+      this.player2Score = ScoreState.FORTY.getScore();
+    } else if (this.isScoreFifteen(this.player2Score)) {
+      this.player2Score = ScoreState.THIRTY.getScore();
+    } else if (this.isScoreLove(this.player2Score)) {
+      this.player2Score = ScoreState.FIFTEEN.getScore();
     }
   }
 }
