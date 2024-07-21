@@ -2,85 +2,51 @@ package org.example.game;
 
 public class Game {
 
-  private String player1Score;
-  private String player2Score;
+  private ScoreState player1Score;
+  private ScoreState player2Score;
 
-  public Game(String score1, String score2) {
+  public Game(ScoreState score1, ScoreState score2) {
     this.player1Score = score1;
     this.player2Score = score2;
   }
 
   public String getPlayer1Score() {
-    return player1Score;
+    return player1Score.getScore();
   }
 
   public String getPlayer2Score() {
-    return player2Score;
+    return player2Score.getScore();
   }
 
   public Boolean isPlayer1Winner() {
-    return ScoreState.WIN.getScore().equals(player1Score);
+    return player1Score instanceof WinState;
   }
 
   public Boolean isPlayer2Winner() {
-    return ScoreState.WIN.getScore().equals(player2Score);
+    return player2Score instanceof WinState;
   }
 
   public void player1Scores() {
-    if (ScoreState.ADVANTAGE.getScore().equals(player1Score)) {
-      player1Score = ScoreState.WIN.getScore();
-    } else if (ScoreState.ADVANTAGE.getScore().equals(player2Score)) {
-      player2Score = ScoreState.DEUCE.getScore();
-      player1Score = ScoreState.DEUCE.getScore();
-    } else if (
-      ScoreState.DEUCE.getScore().equals(player1Score) &&
-      ScoreState.DEUCE.getScore().equals(player2Score)
-    ) {
-      player1Score = ScoreState.ADVANTAGE.getScore();
-      player2Score = ScoreState.FORTY.getScore();
-    } else if (
-      ScoreState.THIRTY.getScore().equals(player1Score) &&
-      ScoreState.FORTY.getScore().equals(player2Score)
-    ) {
-      player1Score = ScoreState.DEUCE.getScore();
-      player2Score = ScoreState.DEUCE.getScore();
-    } else if (ScoreState.FORTY.getScore().equals(player1Score)) {
-      player1Score = ScoreState.WIN.getScore();
-    } else if (ScoreState.THIRTY.getScore().equals(player1Score)) {
-      player1Score = ScoreState.FORTY.getScore();
-    } else if (ScoreState.FIFTEEN.getScore().equals(player1Score)) {
-      player1Score = ScoreState.THIRTY.getScore();
-    } else if (ScoreState.LOVE.getScore().equals(player1Score)) {
-      player1Score = ScoreState.FIFTEEN.getScore();
-    }
+    player1Score.player1Scores(this);
   }
 
   public void player2Scores() {
-    if (ScoreState.ADVANTAGE.getScore().equals(player2Score)) {
-      player2Score = ScoreState.WIN.getScore();
-    } else if (ScoreState.ADVANTAGE.getScore().equals(player1Score)) {
-      player1Score = ScoreState.DEUCE.getScore();
-      player2Score = ScoreState.DEUCE.getScore();
-    } else if (
-      ScoreState.DEUCE.getScore().equals(player2Score) &&
-      ScoreState.DEUCE.getScore().equals(player1Score)
-    ) {
-      player2Score = ScoreState.ADVANTAGE.getScore();
-      player1Score = ScoreState.FORTY.getScore();
-    } else if (
-      ScoreState.THIRTY.getScore().equals(player2Score) &&
-      ScoreState.FORTY.getScore().equals(player1Score)
-    ) {
-      player2Score = ScoreState.DEUCE.getScore();
-      player1Score = ScoreState.DEUCE.getScore();
-    } else if (ScoreState.FORTY.getScore().equals(player2Score)) {
-      player2Score = ScoreState.WIN.getScore();
-    } else if (ScoreState.THIRTY.getScore().equals(player2Score)) {
-      player2Score = ScoreState.FORTY.getScore();
-    } else if (ScoreState.FIFTEEN.getScore().equals(player2Score)) {
-      player2Score = ScoreState.THIRTY.getScore();
-    } else if (ScoreState.LOVE.getScore().equals(player2Score)) {
-      player2Score = ScoreState.FIFTEEN.getScore();
-    }
+    player2Score.player2Scores(this);
+  }
+
+  public void setPlayer1Score(ScoreState score) {
+    this.player1Score = score;
+  }
+
+  public void setPlayer2Score(ScoreState score) {
+    this.player2Score = score;
+  }
+
+  public boolean isPlayer1Advantage() {
+    return player1Score.getScore().equals("advantage");
+  }
+
+  public boolean isPlayer2Advantage() {
+    return player2Score.getScore().equals("advantage");
   }
 }

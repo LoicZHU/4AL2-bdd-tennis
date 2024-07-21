@@ -1,20 +1,24 @@
 Feature: Special rules scoring
 
-  Rule: The score should be "deuce" and "deuce" when both players reach 40
+  Rule: The score should be "deuce" when both players reach 40
 
-    Scenario: Player1 score is 30 and Player2 score is 40 and go to deuce
+    Scenario: Player1 score is 30 and Player2 score is 40 and go to 40-40
       Given the initial score is "30" "40"
       When Player1 wins a point
       Then the score should be "deuce" "deuce"
-    Scenario: Player1 score is 40 and Player2 score is 30 and go to deuce
+
+    Scenario: Player1 score is 40 and Player2 score is 30 and go to 40-40
       Given the initial score is "40" "30"
       When Player2 wins a point
       Then the score should be "deuce" "deuce"
+
+  Rule: The score should be "deuce" when a player with advantage loses the next point
 
     Scenario: Player1 without advantage wins a point and the score goes back to deuce
       Given the initial score is "40" "advantage"
       When Player1 wins a point
       Then the score should be "deuce" "deuce"
+
     Scenario: Player2 without advantage wins a point and the score goes back to deuce
       Given the initial score is "advantage" "40"
       When Player2 wins a point
@@ -26,6 +30,7 @@ Feature: Special rules scoring
       Given the initial score is "deuce" "deuce"
       When Player1 wins a point
       Then the score should be "advantage" "40"
+
     Scenario: Player2 wins a point at deuce and gets advantage
       Given the initial score is "deuce" "deuce"
       When Player2 wins a point
@@ -37,6 +42,7 @@ Feature: Special rules scoring
       Given the initial score is "advantage" "40"
       When Player1 wins a point
       Then Player1 should win the game
+
     Scenario: Player2 with advantage wins the next point and wins the game
       Given the initial score is "40" "advantage"
       When Player2 wins a point
